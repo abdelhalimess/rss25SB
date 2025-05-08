@@ -1,7 +1,11 @@
-/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/Rss25SbApplication.java
-/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/ServletInitializer.java
-/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/GetController.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/service/UserService.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/IndexController.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/UserController.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/ServletInitializer.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/PostController.java
-/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Item.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/TestRSS.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/GetController.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/repository/UserRepository.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Item.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/Rss25SbApplication.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/User.java

@@ -1,7 +1,11 @@
 fr/univrouen/rss25SB/ServletInitializer.class
-fr/univrouen/rss25SB/model/TestRSS.class
-fr/univrouen/rss25SB/controllers/GetController.class
-fr/univrouen/rss25SB/model/Item.class
-fr/univrouen/rss25SB/Rss25SbApplication.class
+fr/univrouen/rss25SB/repository/UserRepository.class
 fr/univrouen/rss25SB/controllers/PostController.class
 fr/univrouen/rss25SB/controllers/IndexController.class
+fr/univrouen/rss25SB/service/UserService.class
+fr/univrouen/rss25SB/model/TestRSS.class
+fr/univrouen/rss25SB/controllers/GetController.class
+fr/univrouen/rss25SB/model/User.class
+fr/univrouen/rss25SB/controllers/UserController.class
+fr/univrouen/rss25SB/model/Item.class
+fr/univrouen/rss25SB/Rss25SbApplication.class
