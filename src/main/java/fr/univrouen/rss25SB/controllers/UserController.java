@@ -2,6 +2,8 @@ package fr.univrouen.rss25SB.controllers;
 
 import fr.univrouen.rss25SB.model.User;
 import fr.univrouen.rss25SB.service.UserService;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,8 +19,9 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestParam String name) {
-        return userService.save(name);
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User createdUser = userService.createUser(user);
+        return ResponseEntity.ok(createdUser);
     }
 
     @GetMapping
