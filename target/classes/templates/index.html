@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RSS25SB Service</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1 th:text="${projectName}">RSS25SB Service</h1>
+    </header>
+    <main>
+        <section class="project-info">
+            <h2>Informations du projet</h2>
+            <ul>
+                <li><strong>Nom du projet:</strong> <span th:text="${projectName}">RSS25SB Service</span></li>
+                <li><strong>Version:</strong> <span th:text="${version}">1.0.0</span></li>
+                <li><strong>Développeur(s):</strong> <span th:text="${developers}">Votre Nom</span></li>
+            </ul>
+            <div class="university-logo">
+                <img src="/img/univ-rouen-logo.png" alt="Logo Université de Rouen">
+            </div>
+        </section>
+        <section class="service-links">
+            <h2>Services disponibles</h2>
+            <ul>
+                <li><a href="/help">Aide</a> - Informations sur les API disponibles</li>
+                <li><a href="/rss25SB/resume/xml">Liste des articles (XML)</a> - Liste résumée des articles au format XML</li>
+                <li><a href="/rss25SB/resume/html">Liste des articles (HTML)</a> - Liste résumée des articles au format HTML</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2025</span> - Université de Rouen</p>
+    </footer>
+</body>
+</html>
