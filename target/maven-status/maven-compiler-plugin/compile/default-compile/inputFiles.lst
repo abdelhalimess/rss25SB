@@ -3,6 +3,7 @@
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/GetController.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/HomeController.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/ItemController.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/controllers/ItemHtmlController.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Author.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Content.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Feed.java

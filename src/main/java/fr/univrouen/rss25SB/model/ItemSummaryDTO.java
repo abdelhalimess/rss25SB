@@ -25,6 +25,16 @@ public class ItemSummaryDTO {
         this.guid = guid;
     }
 
-    // Getters et setters...
+    public Long getId() {
+        return id;
+    }
+    
+    public LocalDateTime getPublicationDate() {
+        return publicationDate;
+    }
+
+    public String getGuid() {
+        return guid;
+    }
 }
 
