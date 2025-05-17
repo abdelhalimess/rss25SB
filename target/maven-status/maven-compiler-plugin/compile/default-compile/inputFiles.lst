@@ -11,6 +11,7 @@
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/ItemSummaryDTO.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/ItemSummaryList.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/Link.java
+/home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/LocalDateTimeAdapter.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/model/TestRSS.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/repository/ItemRepository.java
 /home/abdelhalim/eclipse-workspace/rss25SB/src/main/java/fr/univrouen/rss25SB/service/ItemService.java

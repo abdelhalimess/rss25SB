@@ -1,6 +1,8 @@
 package fr.univrouen.rss25SB.model;
 
 import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.time.LocalDateTime;
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -9,7 +11,7 @@ public class ItemSummaryDTO {
     @XmlElement
     private Long id;
 
-    @XmlElement(name = "date")
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     private LocalDateTime publicationDate;
 
     @XmlElement

@@ -39,7 +39,7 @@ public class Feed {
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Link> links = new ArrayList<>();
 
-    @XmlElement(name = "item")
-    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Item> items = new ArrayList<>();
+//    @XmlElement(name = "item")
+//    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
+//    private List<Item> items = new ArrayList<>();
 }
