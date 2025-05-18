@@ -2,9 +2,12 @@ package fr.univrouen.rss25SB.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 
 @Embeddable
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Image {
 
     @XmlAttribute
@@ -20,6 +23,8 @@ public class Image {
     @XmlAttribute
     private Integer length;
 
+    
+    public Image() {}
     // Getters and setters
     public String getType() {
         return type;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Détails de l'item</title>
+</head>
+<body>
+    <h1>Détails de l'item</h1>
+    <p>ID : <span th:text="${item.id}"></span></p>
+    <p>GUID : <span th:text="${item.guid}"></span></p>
+    <p>Date : <span th:text="${item.updated != null} ? item.updated : item.published"></span></p>
+    <p>Titre : <span th:text="${item.title}"></span></p>
+
+    <h2>Catégories</h2>
+    <ul>
+        <li th:each="cat : ${item.categories}" th:text="${cat}"></li>
+    </ul>
+
+    <h2>Auteurs</h2>
+    <ul>
+        <li th:each="author : ${item.authors}" th:text="${author.name}"></li>
+    </ul>
+    
+        <h2>Contributeurs</h2>
+    <ul>
+        <li th:each="contributor : ${item.contributors}" th:text="${contributor.name}"></li>
+    </ul>
+
+    <h2>Image</h2>
+    <div th:if="${item.image != null}">
+        <img th:src="${item.image.href}" th:alt="${item.image.alt}" />
+    </div>
+
+    <h2>Contenu</h2>
+    <div th:if="${item.content != null}">
+        <div th:utext="${item.content.value}"></div>
+    </div>
+</body>
+
+</html>

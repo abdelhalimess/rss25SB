@@ -2,15 +2,15 @@ package fr.univrouen.rss25SB.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Lob;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
 @Embeddable
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Content {
 
-    @Lob
-    @Column(nullable = false)
     @XmlValue
     private String value;
 
@@ -20,6 +20,8 @@ public class Content {
 
     @XmlAttribute
     private String src;
+    
+    public Content() {}
 
     // Getters and setters
     public String getValue() {

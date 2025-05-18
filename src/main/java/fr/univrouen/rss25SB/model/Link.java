@@ -25,4 +25,6 @@ public class Link {
     @JoinColumn(name = "feed_id", nullable = false)
     @XmlTransient
     private Feed feed;
+    
+    public Link() {}
 }

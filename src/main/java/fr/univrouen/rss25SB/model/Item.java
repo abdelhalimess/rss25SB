@@ -7,6 +7,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 import java.util.*;
 
+@XmlRootElement(name = "item")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 public class Item {
@@ -30,27 +31,36 @@ public class Item {
     @Column(name = "term")
     private List<String> categories = new ArrayList<>();
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class) // ou "updated"
-    @Column(nullable = false)
-    private LocalDateTime publicationDate;
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Column(nullable = true)
+    private LocalDateTime published;
+    
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Column(nullable = true)
+    private LocalDateTime updated;
 
-//    @XmlElement
-////    @Embedded
-//    private Image image;
-//
-//    @XmlElement
-////    @Embedded
-//    private Content content;
+    @XmlElement
+    @Embedded
+    private Image image;
 
-//    @XmlElement(name = "author")
-//    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Author> authors = new ArrayList<>();
+    @XmlElement
+    @Embedded
+    private Content content;
 
-//    @ManyToOne
-//    @JoinColumn(name = "feed_id", nullable = false)
-//    @XmlTransient
-//    private Feed feed;
+    @XmlElement(name = "author")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Author> authors = new ArrayList<>();
+    
+    @XmlElement(name = "contributor")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Contributor> contributors = new ArrayList<>();
 
+    @ManyToOne
+    @JoinColumn(name = "feed_id", nullable = false)
+    @XmlTransient
+    private Feed feed;
+
+    public Item() {}
     // Getters and Setters
     public Long getId() {
         return id;
@@ -84,43 +94,59 @@ public class Item {
         this.categories = categories;
     }
 
-    public LocalDateTime getPublicationDate() {
-        return publicationDate;
+    public LocalDateTime getPublished() {
+        return published;
     }
 
-    public void setPublicationDate(LocalDateTime publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setPublished(LocalDateTime published) {
+        this.published = published;
+    }
+    
+    public LocalDateTime getUpdated() {
+        return updated;
     }
 
-//    public Image getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(Image image) {
-//        this.image = image;
-//    }
-//
-//    public Content getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(Content content) {
-//        this.content = content;
-//    }
-//
-//    public List<Author> getAuthors() {
-//        return authors;
-//    }
-//
-//    public void setAuthors(List<Author> authors) {
-//        this.authors = authors;
-//    }
-//
-//    public Feed getFeed() {
-//        return feed;
-//    }
-//
-//    public void setFeed(Feed feed) {
-//        this.feed = feed;
-//    }
+    public void setUpdated(LocalDateTime updated) {
+        this.updated = updated;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public Content getContent() {
+        return content;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
+    }
+    
+    public List<Contributor> getContributors() {
+        return contributors;
+    }
+
+    public void setContributors(List<Contributor> contributors) {
+        this.contributors = contributors;
+    }
+
+    public Feed getFeed() {
+        return feed;
+    }
+
+    public void setFeed(Feed feed) {
+        this.feed = feed;
+    }
 }

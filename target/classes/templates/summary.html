@@ -30,15 +30,22 @@
                 <th>GUID (lien)</th>
             </tr>
         </thead>
-        <tbody>
-            <tr th:each="article : ${articles}">
-                <td th:text="${article.id}"></td>
-                <td th:text="${article.publicationDate}"></td>
-                <td>
-                    <a th:href="${article.guid}" th:text="${article.guid}"></a>
-                </td>
-            </tr>
-        </tbody>
+<tbody>
+<tr th:each="article : ${articles}" style="cursor: pointer;">
+    <!-- Make the ID cell clickable -->
+    <td th:onclick="'window.location.href=\'/rss25SB/resume/html/' + ${article.id} + '\''" th:text="${article.id}"></td>
+    <!-- Make the date cell clickable -->
+    <td th:onclick="'window.location.href=\'/rss25SB/resume/html/' + ${article.id} + '\''" th:text="${article.date}"></td>
+    <td>
+        <!-- URL column remains separate with external linking behavior -->
+        <a th:href="${#strings.startsWith(article.guid, 'http') ? article.guid : 'https://' + article.guid}" 
+           th:text="${article.guid}" 
+           target="_blank" 
+           rel="noopener noreferrer"></a>
+    </td>
+</tr>
+</tbody>
+
     </table>
 </body>
 </html>

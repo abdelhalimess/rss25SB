@@ -5,7 +5,7 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Author {
+public class Contributor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +26,9 @@ public class Author {
     @JoinColumn(name = "item_id", nullable = false)
     @XmlTransient
     private Item item;
-
-    public Author() {}
-
+    
+    public Contributor() {}
+    
     // Getters
     public Long getId() {
         return id;

@@ -5,23 +5,25 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import java.time.LocalDateTime;
 
+@XmlRootElement(name = "item")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ItemSummaryDTO {
 
     @XmlElement
     private Long id;
-
+    
+    @XmlElement
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    private LocalDateTime publicationDate;
+    private LocalDateTime date;
 
     @XmlElement
     private String guid;
 
     public ItemSummaryDTO() {}
 
-    public ItemSummaryDTO(Long id, LocalDateTime publicationDate, String guid) {
+    public ItemSummaryDTO(Long id, LocalDateTime date, String guid) {
         this.id = id;
-        this.publicationDate = publicationDate;
+        this.date = date;
         this.guid = guid;
     }
 
@@ -29,12 +31,13 @@ public class ItemSummaryDTO {
         return id;
     }
     
-    public LocalDateTime getPublicationDate() {
-        return publicationDate;
+    public LocalDateTime getDate() {
+        return date;
     }
 
     public String getGuid() {
         return guid;
     }
 }
+
 
