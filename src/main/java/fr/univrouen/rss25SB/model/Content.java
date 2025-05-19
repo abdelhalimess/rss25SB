@@ -9,15 +9,15 @@ import jakarta.xml.bind.annotation.XmlValue;
 @Embeddable
 public class Content {
 
-    @Lob
-    @Column(nullable = false)
+    @Column(name = "content_value", nullable = false, columnDefinition = "text")   
     @XmlValue
     private String value;
 
+    @Column(name = "content_type")
     @XmlAttribute
-    @Column(insertable = false, updatable = false) // Preventing database mapping for 'type' to avoid conflicts
     private String type;
 
+    @Column(name = "content_src")
     @XmlAttribute
     private String src;
 

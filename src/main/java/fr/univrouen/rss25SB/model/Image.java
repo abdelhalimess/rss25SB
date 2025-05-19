@@ -1,26 +1,28 @@
 package fr.univrouen.rss25SB.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
-import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.persistence.*;
+import jakarta.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Image {
 
     @XmlAttribute
-    @Column(insertable = false, updatable = false)
+    @Column(nullable = false)
     private String type;
 
     @XmlAttribute
+    @Column(nullable = false)
     private String href;
 
     @XmlAttribute
+    @Column(nullable = false)
     private String alt;
 
     @XmlAttribute
     private Integer length;
 
-    // Getters and setters
+    // Getters and Setters
     public String getType() {
         return type;
     }
@@ -53,4 +55,3 @@ public class Image {
         this.length = length;
     }
 }
-

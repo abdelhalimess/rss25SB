@@ -9,12 +9,24 @@ import java.util.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
+@Table(name = "item")
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlTransient
     private Long id;
+    @Embedded
+    private Content content;
+    @XmlElement(name = "author")
+    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Author> authors = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "feed_id", nullable = false)
+    @XmlTransient
+    private Feed feed;
+
 
     @XmlElement
     @Column(unique = true, nullable = false)
@@ -30,26 +42,16 @@ public class Item {
     @Column(name = "term")
     private List<String> categories = new ArrayList<>();
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class) // ou "updated"
+    @XmlElement(name = "published")
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column(nullable = false)
     private LocalDateTime publicationDate;
 
-//    @XmlElement
-////    @Embedded
-//    private Image image;
-//
-//    @XmlElement
-////    @Embedded
-//    private Content content;
+    @XmlElement
+    @Embedded
+    private Image image;
 
-//    @XmlElement(name = "author")
-//    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Author> authors = new ArrayList<>();
 
-//    @ManyToOne
-//    @JoinColumn(name = "feed_id", nullable = false)
-//    @XmlTransient
-//    private Feed feed;
 
     // Getters and Setters
     public Long getId() {
@@ -92,35 +94,41 @@ public class Item {
         this.publicationDate = publicationDate;
     }
 
-//    public Image getImage() {
-//        return image;
-//    }
-//
-//    public void setImage(Image image) {
-//        this.image = image;
-//    }
-//
-//    public Content getContent() {
-//        return content;
-//    }
-//
-//    public void setContent(Content content) {
-//        this.content = content;
-//    }
-//
-//    public List<Author> getAuthors() {
-//        return authors;
-//    }
-//
-//    public void setAuthors(List<Author> authors) {
-//        this.authors = authors;
-//    }
-//
-//    public Feed getFeed() {
-//        return feed;
-//    }
-//
-//    public void setFeed(Feed feed) {
-//        this.feed = feed;
-//    }
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
+    public Content getContent() {
+        return content;
+    }
+
+    public void setContent(Content content) {
+        this.content = content;
+    }
+
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(List<Author> authors) {
+        this.authors = authors;
+    }
+
+    public void addAuthor(Author author) {
+        authors.add(author);
+        author.setItem(this);
+    }
+
+    public Feed getFeed() {
+        return feed;
+    }
+
+    public void setFeed(Feed feed) {
+        this.feed = feed;
+    }
+
 }

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insertion de flux RSS25SB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        textarea {
+            width: 100%;
+            height: 400px;
+            padding: 10px;
+            font-family: monospace;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+        .template-section {
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+        .template-button {
+            background-color: #2196F3;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .template-button:hover {
+            background-color: #0b7dda;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .error {
+            color: #D8000C;
+            background-color: #FFD2D2;
+            padding: 10px;
+            margin-top: 15px;
+            border-radius: 4px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Insertion de flux RSS25SB</h1>
+        
+        <div class="form-group">
+            <p>Saisissez ou collez votre contenu XML RSS25SB ci-dessous :</p>
+            <textarea id="xmlContent" placeholder="<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns='http://www.w3.org/2005/Atom' lang='fr' version='25'>
+    <!-- Insérez votre flux RSS25SB ici -->
+</feed>"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <button id="validateButton" type="button">Valider le XML</button>
+            <button id="submitButton" type="button">Soumettre</button>
+        </div>
+        
+        <div id="error" class="error"></div>
+        <div id="result" class="result"></div>
+        
+        <div class="template-section">
+            <h2>Modèles de flux RSS25SB</h2>
+            <p>Cliquez sur un bouton pour charger un modèle :</p>
+            <button class="template-button" id="minimalTemplate">Modèle minimal</button>
+            <button class="template-button" id="fullTemplate">Modèle complet</button>
+            
+            <div>
+                <h3>Modèle minimal</h3>
+                <pre id="minimalExample">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom" lang="fr" version="25"&gt;
+    &lt;title&gt;Titre du flux&lt;/title&gt;
+    &lt;pubDate&gt;2025-05-19T10:00:00Z&lt;/pubDate&gt;
+    &lt;copyright&gt;Copyright 2025&lt;/copyright&gt;
+    &lt;link rel="self" type="application/atom+xml" href="https://example.com/feed"/&gt;
+    &lt;item&gt;
+        &lt;guid&gt;https://example.com/article/1&lt;/guid&gt;
+        &lt;title&gt;Premier article&lt;/title&gt;
+        &lt;category term="actualité"/&gt;
+        &lt;published&gt;2025-05-18T09:00:00Z&lt;/published&gt;
+        &lt;content type="text"&gt;Contenu de l'article&lt;/content&gt;
+        &lt;author&gt;
+            &lt;name&gt;Nom de l'auteur&lt;/name&gt;
+        &lt;/author&gt;
+    &lt;/item&gt;
+&lt;/feed&gt;
+                </pre>
+                
+                <h3>Modèle complet</h3>
+                <pre id="fullExample">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;feed xmlns="http://www.w3.org/2005/Atom" lang="fr" version="25"&gt;
+    &lt;title&gt;Actualités Université de Rouen&lt;/title&gt;
+    &lt;pubDate&gt;2025-05-19T10:00:00Z&lt;/pubDate&gt;
+    &lt;copyright&gt;Copyright Université de Rouen 2025&lt;/copyright&gt;
+    &lt;link rel="self" type="application/atom+xml" href="https://univ-rouen.fr/feeds/actualites"/&gt;
+    &lt;link rel="alternate" type="text/html" href="https://univ-rouen.fr/actualites"/&gt;
+    
+    &lt;item&gt;
+        &lt;guid&gt;https://univ-rouen.fr/actualites/1&lt;/guid&gt;
+        &lt;title&gt;Ouverture des inscriptions pour l'année universitaire 2025-2026&lt;/title&gt;
+        &lt;category term="inscription"/&gt;
+        &lt;category term="université"/&gt;
+        &lt;published&gt;2025-05-18T09:00:00Z&lt;/published&gt;
+        &lt;image type="JPEG" href="https://example.com/images/inscription.jpg" alt="Inscription" length="15000"/&gt;
+        &lt;content type="html"&gt;&lt;![CDATA[&lt;p&gt;Les inscriptions pour l'année universitaire 2025-2026 sont désormais ouvertes. &lt;strong&gt;N'attendez pas la dernière minute !&lt;/strong&gt;&lt;/p&gt;]]&gt;&lt;/content&gt;
+        &lt;author&gt;
+            &lt;name&gt;Service Scolarité&lt;/name&gt;
+            &lt;email&gt;scolarite@univ-rouen.fr&lt;/email&gt;
+            &lt;uri&gt;https://univ-rouen.fr/services/scolarite&lt;/uri&gt;
+        &lt;/author&gt;
+        &lt;contributor&gt;
+            &lt;name&gt;Direction de la Communication&lt;/name&gt;
+        &lt;/contributor&gt;
+    &lt;/item&gt;
+    
+    &lt;item&gt;
+        &lt;guid&gt;https://univ-rouen.fr/actualites/2&lt;/guid&gt;
+        &lt;title&gt;Nouvelle formation en Intelligence Artificielle&lt;/title&gt;
+        &lt;category term="formation"/&gt;
+        &lt;category term="IA"/&gt;
+        &lt;updated&gt;2025-05-17T14:30:00Z&lt;/updated&gt;
+        &lt;content type="text"&gt;L'Université de Rouen ouvre une nouvelle formation en Intelligence Artificielle à la rentrée 2025. Cette formation s'adresse aux étudiants de Master.&lt;/content&gt;
+        &lt;author&gt;
+            &lt;name&gt;Département Informatique&lt;/name&gt;
+        &lt;/author&gt;
+    &lt;/item&gt;
+&lt;/feed&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const validateButton = document.getElementById('validateButton');
+            const submitButton = document.getElementById('submitButton');
+            const xmlContentTextarea = document.getElementById('xmlContent');
+            const resultDiv = document.getElementById('result');
+            const errorDiv = document.getElementById('error');
+            const minimalTemplateButton = document.getElementById('minimalTemplate');
+            const fullTemplateButton = document.getElementById('fullTemplate');
+            const minimalExample = document.getElementById('minimalExample').textContent;
+            const fullExample = document.getElementById('fullExample').textContent;
+            
+            minimalTemplateButton.addEventListener('click', function() {
+                xmlContentTextarea.value = minimalExample.trim();
+            });
+            
+            fullTemplateButton.addEventListener('click', function() {
+                xmlContentTextarea.value = fullExample.trim();
+            });
+            
+            validateButton.addEventListener('click', function() {
+                const xmlContent = xmlContentTextarea.value.trim();
+                if (!xmlContent) {
+                    showError("Veuillez saisir du contenu XML.");
+                    return;
+                }
+                
+                // Vérification basique de la structure XML
+                if (!xmlContent.includes('<?xml') || !xmlContent.includes('<feed')) {
+                    showError("Le contenu ne semble pas être un XML valide. Vérifiez la structure de votre document.");
+                    return;
+                }
+                
+                // Vous pouvez ajouter plus de validation côté client ici si nécessaire
+                showResult("Validation basique réussie. La validation complète sera effectuée lors de la soumission.");
+            });
+            
+            submitButton.addEventListener('click', function() {
+                const xmlContent = xmlContentTextarea.value.trim();
+                if (!xmlContent) {
+                    showError("Veuillez saisir du contenu XML.");
+                    return;
+                }
+                
+                fetch('/rss25SB/insert', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/xml'
+                    },
+                    body: xmlContent
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if (data.includes('<status>ERROR</status>')) {
+                        // Extraction du message d'erreur
+                        const messageMatch = data.match(/<message>(.*?)<\/message>/);
+                        const errorMessage = messageMatch ? messageMatch[1] : "Une erreur s'est produite";
+                        showError(errorMessage);
+                    } else if (data.includes('<status>INSERTED</status>')) {
+                        // Extraction de l'ID
+                        const idMatch = data.match(/<id>(.*?)<\/id>/);
+                        const insertedId = idMatch ? idMatch[1] : "inconnu";
+                        showResult(`Le flux a été inséré avec succès ! ID: ${insertedId}`);
+                    } else {
+                        showResult(data);
+                    }
+                })
+                .catch(error => {
+                    showError("Erreur lors de la soumission : " + error);
+                });
+            });
+            
+            function showError(message) {
+                errorDiv.textContent = message;
+                errorDiv.style.display = 'block';
+                resultDiv.style.display = 'none';
+            }
+            
+            function showResult(message) {
+                resultDiv.textContent = message;
+                resultDiv.style.display = 'block';
+                errorDiv.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

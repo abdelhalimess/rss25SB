@@ -2,6 +2,7 @@ package fr.univrouen.rss25SB.model;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -20,6 +21,7 @@ public class Feed {
     private String title;
 
     @XmlElement
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column(nullable = false)
     private LocalDateTime pubDate;
 
@@ -39,7 +41,81 @@ public class Feed {
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Link> links = new ArrayList<>();
 
-//    @XmlElement(name = "item")
-//    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private List<Item> items = new ArrayList<>();
+    @XmlElement(name = "item")
+    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Item> items = new ArrayList<>();
+
+    // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public LocalDateTime getPubDate() {
+        return pubDate;
+    }
+
+    public void setPubDate(LocalDateTime pubDate) {
+        this.pubDate = pubDate;
+    }
+
+    public String getCopyright() {
+        return copyright;
+    }
+
+    public void setCopyright(String copyright) {
+        this.copyright = copyright;
+    }
+
+    public String getLang() {
+        return lang;
+    }
+
+    public void setLang(String lang) {
+        this.lang = lang;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public List<Link> getLinks() {
+        return links;
+    }
+
+    public void setLinks(List<Link> links) {
+        this.links = links;
+    }
+
+    public void addLink(Link link) {
+        links.add(link);
+        link.setFeed(this);
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
 }
