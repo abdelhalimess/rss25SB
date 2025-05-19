@@ -2,21 +2,20 @@ package fr.univrouen.rss25SB.model;
 
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.*;
-
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Image {
 
     @XmlAttribute
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String type;
 
     @XmlAttribute
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String href;
 
     @XmlAttribute
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String alt;
 
     @XmlAttribute

@@ -11,5 +11,4 @@ import fr.univrouen.rss25SB.model.Item;
 public interface ItemRepository extends JpaRepository<Item, Long> {
 
     // Tu peux ajouter d'autres méthodes si besoin, par exemple :
-    boolean existsByTitleAndPublicationDate(String title, LocalDateTime publicationDate);
 }

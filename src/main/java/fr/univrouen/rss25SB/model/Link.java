@@ -12,15 +12,15 @@ public class Link {
     @XmlTransient
     private Long id;
 
-    @XmlAttribute
+    @XmlAttribute(name = "rel")
     @Column(nullable = false)
     private String rel;
 
-    @XmlAttribute
+    @XmlAttribute(name = "type")
     @Column(nullable = false)
     private String type;
 
-    @XmlAttribute
+    @XmlAttribute(name = "href")
     @Column(nullable = false)
     private String href;
 
@@ -29,7 +29,8 @@ public class Link {
     @XmlTransient
     private Feed feed;
 
-    // Getters and Setters
+    public Link() {}
+
     public Long getId() {
         return id;
     }

@@ -19,7 +19,7 @@ public class ItemService {
 
     public List<ItemSummaryDTO> getAllItemSummaries() {
         return itemRepository.findAll().stream()
-            .map(item -> new ItemSummaryDTO(item.getId(), item.getPublicationDate(), item.getGuid()))
+            .map(item -> new ItemSummaryDTO(item.getId(), item.getPublished(), item.getGuid()))
             .collect(Collectors.toList());
     }
 }

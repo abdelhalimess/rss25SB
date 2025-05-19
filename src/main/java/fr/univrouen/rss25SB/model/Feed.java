@@ -3,10 +3,11 @@ package fr.univrouen.rss25SB.model;
 import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.*;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+
 import java.time.LocalDateTime;
 import java.util.*;
 
-@XmlRootElement(name = "feed")
+@XmlRootElement(name = "feed", namespace = "http://www.w3.org/2005/Atom")
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 public class Feed {
@@ -16,34 +17,40 @@ public class Feed {
     @XmlTransient
     private Long id;
 
-    @XmlElement
+    @XmlElement(name = "title", namespace = "http://www.w3.org/2005/Atom")
     @Column(length = 128, nullable = false)
     private String title;
 
-    @XmlElement
+    @XmlElement(name = "pubDate", namespace = "http://www.w3.org/2005/Atom")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column(nullable = false)
     private LocalDateTime pubDate;
 
-    @XmlElement
+    @XmlElement(name = "copyright", namespace = "http://www.w3.org/2005/Atom")
     @Column(length = 128, nullable = false)
     private String copyright;
 
-    @XmlAttribute
+    @XmlAttribute(name = "lang")
     @Column(nullable = false)
     private String lang;
 
-    @XmlAttribute
+    @XmlAttribute(name = "version")
     @Column(nullable = false)
     private String version = "25";
 
-    @XmlElement(name = "link")
+    // Correction ici: suppression de l'élément wrapper links
+    @XmlElement(name = "link", namespace = "http://www.w3.org/2005/Atom")
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Link> links = new ArrayList<>();
 
-    @XmlElement(name = "item")
+    // Correction ici: suppression de l'élément wrapper items
+    @XmlElement(name = "item", namespace = "http://www.w3.org/2005/Atom")
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Item> items = new ArrayList<>();
+
+    // Constructeurs
+    public Feed() {
+    }
 
     // Getters and Setters
     public Long getId() {
@@ -117,5 +124,6 @@ public class Feed {
 
     public void addItem(Item item) {
         items.add(item);
+        item.setFeed(this);
     }
 }

@@ -6,16 +6,21 @@ import java.time.format.DateTimeFormatter;
 
 public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
 
-    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ISO_DATE_TIME;
+    private final DateTimeFormatter formatter = DateTimeFormatter.ISO_DATE_TIME;
 
     @Override
-    public LocalDateTime unmarshal(String v) {
-        return LocalDateTime.parse(v, FORMATTER);
+    public LocalDateTime unmarshal(String v) throws Exception {
+        if (v == null || v.isEmpty()) {
+            return null;
+        }
+        return LocalDateTime.parse(v, formatter);
     }
 
     @Override
-    public String marshal(LocalDateTime v) {
-        return v.format(FORMATTER);
+    public String marshal(LocalDateTime v) throws Exception {
+        if (v == null) {
+            return null;
+        }
+        return v.format(formatter);
     }
 }
-
