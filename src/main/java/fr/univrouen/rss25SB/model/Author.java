@@ -26,54 +26,6 @@ public class Author {
     @JoinColumn(name = "item_id", nullable = false)
     @XmlTransient
     private Item item;
-<<<<<<< HEAD
-
-    public Author() {}
-
-    // Getters
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    // Setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    public void setItem(Item item) {
-        this.item = item;
-    }
-}
-=======
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
 
     // Getters and Setters
     public Long getId() {

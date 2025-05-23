@@ -33,6 +33,7 @@ public class ItemHtmlController {
 
         if (item.isPresent()) {
             model.addAttribute("item", item.get());
+            // model.addAttribute("categories", item.get());
             return "itemDetails";  // nom du template Thymeleaf pour afficher l’item
         } else {
             model.addAttribute("errorMessage", "Item with id " + id + " not found.");

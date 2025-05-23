@@ -70,9 +70,4 @@ public class Contributor {
     public void setItem(Item item) {
         this.item = item;
     }
-<<<<<<< HEAD
 }
-
-=======
-}
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034

@@ -7,12 +7,12 @@
     <h1>Détails de l'item</h1>
     <p>ID : <span th:text="${item.id}"></span></p>
     <p>GUID : <span th:text="${item.guid}"></span></p>
-    <p>Date : <span th:text="${item.updated != null} ? item.updated : item.published"></span></p>
+    <p>Date : <span th:text="${item.updated}"></span></p>
     <p>Titre : <span th:text="${item.title}"></span></p>
 
     <h2>Catégories</h2>
     <ul>
-        <li th:each="cat : ${item.categories}" th:text="${cat}"></li>
+        <li th:each="cat : ${item.categories}" th:text="${cat.term}"></li>
     </ul>
 
     <h2>Auteurs</h2>

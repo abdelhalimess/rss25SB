@@ -28,11 +28,6 @@ public class Link {
     @JoinColumn(name = "feed_id", nullable = false)
     @XmlTransient
     private Feed feed;
-<<<<<<< HEAD
-    
-    public Link() {}
-}
-=======
 
     public Link() {}
 
@@ -76,4 +71,3 @@ public class Link {
         this.feed = feed;
     }
 }
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034

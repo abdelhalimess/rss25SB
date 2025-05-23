@@ -9,23 +9,19 @@ import jakarta.xml.bind.annotation.XmlValue;
 
 import jakarta.xml.bind.annotation.*;
 
-@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Content {
 
-<<<<<<< HEAD
-=======
-    @Column(name = "content_value", nullable = false, columnDefinition = "text")   
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
+    @Column(nullable = false)
     @XmlValue
     private String value;
 
-    @Column(name = "content_type")
+    @Column(insertable = false, updatable = false)
     @XmlAttribute
     private String type;
 
-    @Column(name = "content_src")
+    @Column(insertable = false, updatable = false)
     @XmlAttribute
     private String src;
     

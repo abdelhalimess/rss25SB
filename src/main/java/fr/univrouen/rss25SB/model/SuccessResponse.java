@@ -3,20 +3,16 @@ package fr.univrouen.rss25SB.model;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "error")
-public class ErrorResponse {
+@XmlRootElement(name = "success")
+public class SuccessResponse {
 
     private Long id;
     private String status;
 
-    public ErrorResponse() {}
+    public SuccessResponse() {}
 
-    public ErrorResponse(Long id, String status) {
+    public SuccessResponse(Long id, String status) {
         this.id = id;
-        this.status = status;
-    }
-
-    public ErrorResponse(String status) {
         this.status = status;
     }
 

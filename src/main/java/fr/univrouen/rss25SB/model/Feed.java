@@ -43,14 +43,6 @@ public class Feed {
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Link> links = new ArrayList<>();
 
-<<<<<<< HEAD
-    @XmlElement(name = "item")
-    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Item> items = new ArrayList<>();
-    
-    public Feed() {}
-}
-=======
     // Correction ici: suppression de l'élément wrapper items
     @XmlElement(name = "item", namespace = "http://www.w3.org/2005/Atom")
     @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -135,4 +127,3 @@ public class Feed {
         item.setFeed(this);
     }
 }
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034

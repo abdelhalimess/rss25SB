@@ -7,11 +7,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.time.LocalDateTime;
 import java.util.*;
 
-<<<<<<< HEAD
-@XmlRootElement(name = "item")
-=======
 @XmlRootElement(name = "item", namespace = "http://www.w3.org/2005/Atom")
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 public class Item {
@@ -22,7 +18,7 @@ public class Item {
     private Long id;
 
     @XmlElement(name = "guid", namespace = "http://www.w3.org/2005/Atom")
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String guid;
 
     @XmlElement(name = "title", namespace = "http://www.w3.org/2005/Atom")
@@ -36,29 +32,6 @@ public class Item {
     @Column(name = "term")
     private List<Category> categories = new ArrayList<>();
 
-<<<<<<< HEAD
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    @Column(nullable = true)
-    private LocalDateTime published;
-    
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
-    @Column(nullable = true)
-    private LocalDateTime updated;
-
-    @XmlElement
-    @Embedded
-    private Image image;
-
-    @XmlElement
-    @Embedded
-    private Content content;
-
-    @XmlElement(name = "author")
-    @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Author> authors = new ArrayList<>();
-    
-    @XmlElement(name = "contributor")
-=======
     @XmlElement(name = "published", namespace = "http://www.w3.org/2005/Atom")
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column(name = "published_date", nullable = true)
@@ -84,7 +57,6 @@ public class Item {
     
     // Correction ici: suppression de l'élément wrapper contributors
     @XmlElement(name = "contributor", namespace = "http://www.w3.org/2005/Atom")
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
     @OneToMany(mappedBy = "item", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Contributor> contributors = new ArrayList<>();
 
@@ -94,10 +66,6 @@ public class Item {
     private Feed feed;
 
     public Item() {}
-<<<<<<< HEAD
-=======
-    
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
     // Getters and Setters
     public Long getId() {
         return id;
@@ -137,24 +105,14 @@ public class Item {
 
     public void setPublished(LocalDateTime published) {
         this.published = published;
-<<<<<<< HEAD
-=======
         // Si updated est null ou si published est après updated, on met à jour updated aussi
         if (updated == null || (published != null && published.isAfter(updated))) {
             this.updated = published;
         }
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
     }
     
     public LocalDateTime getUpdated() {
         return updated;
-<<<<<<< HEAD
-    }
-
-    public void setUpdated(LocalDateTime updated) {
-        this.updated = updated;
-    }
-=======
     }
     
     
@@ -176,7 +134,6 @@ public class Item {
         }
     }
 
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
 
     public Image getImage() {
         return image;
@@ -217,9 +174,6 @@ public class Item {
     public void setFeed(Feed feed) {
         this.feed = feed;
     }
-<<<<<<< HEAD
-}
-=======
     // for update/published
     @PrePersist
     @PreUpdate
@@ -228,4 +182,3 @@ public class Item {
     }
 
 }
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
