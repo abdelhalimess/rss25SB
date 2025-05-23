@@ -1,0 +1,72 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2em;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.project-info h2 {
+    color: #003366;
+    margin-bottom: 15px;
+}
+
+.project-info ul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.project-info li {
+    margin-bottom: 10px;
+}
+
+strong {
+    color: #00509e;
+}
+
+.university-logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.university-logo img {
+    max-width: 180px;
+    height: auto;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 0.9em;
+    color: #666;
+}

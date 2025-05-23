@@ -12,7 +12,7 @@ public class HomeController {
     public String home(Model model) {
         model.addAttribute("TP08", "RSS25SB Service");
         model.addAttribute("version", "1.0.0");
-        model.addAttribute("developers", "Moh/Halim");
+        model.addAttribute("developers", "Abdelhalim ESSELAMI - Mohamed BENGUERAR");
         return "index";
     }
 
