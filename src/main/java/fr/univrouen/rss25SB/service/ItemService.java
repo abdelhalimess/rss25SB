@@ -22,10 +22,14 @@ public class ItemService {
 
     public List<ItemSummaryDTO> getAllItemSummaries() {
         return itemRepository.findAll().stream()
+<<<<<<< HEAD
             .map(item -> {
                 LocalDateTime date = item.getPublished() != null ? item.getPublished() : item.getUpdated();
                 return new ItemSummaryDTO(item.getId(), date, item.getGuid());
             })
+=======
+            .map(item -> new ItemSummaryDTO(item.getId(), item.getPublished(), item.getGuid()))
+>>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
             .collect(Collectors.toList());
     }
 

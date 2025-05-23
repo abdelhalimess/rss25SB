@@ -5,77 +5,48 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Author {
+@Table(name = "person")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "person_type", discriminatorType = DiscriminatorType.STRING)
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @XmlTransient
     private Long id;
 
-    @XmlElement
+    @XmlElement(namespace = "http://www.w3.org/2005/Atom")
     @Column(length = 64, nullable = false)
     private String name;
 
-    @XmlElement
+    @XmlElement(namespace = "http://www.w3.org/2005/Atom")
+    @Column
     private String email;
 
-    @XmlElement
+    @XmlElement(namespace = "http://www.w3.org/2005/Atom")
+    @Column
     private String uri;
 
-    @ManyToOne
-    @JoinColumn(name = "item_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
     @XmlTransient
     private Item item;
-<<<<<<< HEAD
 
-    public Author() {}
-
-    // Getters
-    public Long getId() {
-        return id;
+    // Constructeurs
+    public Person() {
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getUri() {
-        return uri;
-    }
-
-    public Item getItem() {
-        return item;
-    }
-
-    // Setters
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
+    public Person(String name) {
         this.name = name;
     }
 
-    public void setEmail(String email) {
+    public Person(String name, String email, String uri) {
+        this.name = name;
         this.email = email;
-    }
-
-    public void setUri(String uri) {
         this.uri = uri;
     }
 
-    public void setItem(Item item) {
-        this.item = item;
-    }
-}
-=======
->>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
-
-    // Getters and Setters
+    // Getters et Setters
     public Long getId() {
         return id;
     }

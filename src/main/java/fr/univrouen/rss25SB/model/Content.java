@@ -7,17 +7,25 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
+import jakarta.xml.bind.annotation.*;
+
+@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Content {
 
+<<<<<<< HEAD
+=======
+    @Column(name = "content_value", nullable = false, columnDefinition = "text")   
+>>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
     @XmlValue
     private String value;
 
+    @Column(name = "content_type")
     @XmlAttribute
-    @Column(insertable = false, updatable = false) // Preventing database mapping for 'type' to avoid conflicts
     private String type;
 
+    @Column(name = "content_src")
     @XmlAttribute
     private String src;
     

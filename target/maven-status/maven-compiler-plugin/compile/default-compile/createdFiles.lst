@@ -1,5 +1,30 @@
+<<<<<<< HEAD
 fr/univrouen/rss25SB/model/TestRSS.class
 fr/univrouen/rss25SB/Rss25SbApplication.class
 fr/univrouen/rss25SB/ServletInitializer.class
 fr/univrouen/rss25SB/controllers/GetController.class
 fr/univrouen/rss25SB/model/Item.class
+=======
+fr/univrouen/rss25SB/repository/ItemRepository.class
+fr/univrouen/rss25SB/model/ApiResponse.class
+fr/univrouen/rss25SB/model/Content.class
+fr/univrouen/rss25SB/model/Feed.class
+fr/univrouen/rss25SB/model/TestRSS.class
+fr/univrouen/rss25SB/model/Image.class
+fr/univrouen/rss25SB/model/ItemSummaryDTO.class
+fr/univrouen/rss25SB/Rss25SbApplication.class
+fr/univrouen/rss25SB/ServletInitializer.class
+fr/univrouen/rss25SB/model/Person.class
+fr/univrouen/rss25SB/model/Link.class
+fr/univrouen/rss25SB/model/ItemSummaryList.class
+fr/univrouen/rss25SB/model/Contributor.class
+fr/univrouen/rss25SB/model/LocalDateTimeAdapter.class
+fr/univrouen/rss25SB/controllers/GetController.class
+fr/univrouen/rss25SB/service/ValidationService.class
+fr/univrouen/rss25SB/service/FeedService.class
+fr/univrouen/rss25SB/repository/FeedRepository.class
+fr/univrouen/rss25SB/model/Item.class
+fr/univrouen/rss25SB/model/Author.class
+fr/univrouen/rss25SB/service/ItemService.class
+fr/univrouen/rss25SB/controllers/HomeController.class
+>>>>>>> 38b053df97a6fdc8dc4b5bb569670d4915b4c034
