@@ -120,7 +120,7 @@
         </xs:sequence>
     </xs:complexType>
 
-    <xs:complexType name="Feed">
+    <xs:complexType name="FeedType">
         <xs:sequence>
             <xs:element name="title" type="textType"/>
             <xs:element name="pubDate" type="xs:dateTime"/>
@@ -133,5 +133,5 @@
     </xs:complexType>
 
     <!-- Élément racine -->
-    <xs:element name="feed" type="Feed"/>
+    <xs:element name="feed" type="FeedType"/>
 </xs:schema>

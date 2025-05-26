@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<bindings version="3.0" xmlns="https://jakarta.ee/xml/ns/jaxb">
+  <!--
+
+Ce fichier a été généré par Eclipse Implementation of JAXB, v3.0.0 
+Voir https://eclipse-ee4j.github.io/jaxb-ri 
+Toute modification apportée à ce fichier sera perdue lors de la recompilation du schéma source. 
+Généré le : 2025.05.26 à 10:42:53 PM CEST 
+
+  -->
+  <bindings scd="x-schema::tns" xmlns:tns="http://www.w3.org/2005/Atom">
+    <schemaBindings map="false">
+      <package name="fr.univrouen.rss25SB.model"/>
+    </schemaBindings>
+    <bindings scd="~tns:FeedType">
+      <class ref="fr.univrouen.rss25SB.model.FeedType"/>
+    </bindings>
+    <bindings scd="~tns:linkType">
+      <class ref="fr.univrouen.rss25SB.model.LinkType"/>
+    </bindings>
+    <bindings scd="~tns:categoryType">
+      <class ref="fr.univrouen.rss25SB.model.CategoryType"/>
+    </bindings>
+    <bindings scd="~tns:imageType">
+      <class ref="fr.univrouen.rss25SB.model.ImageType"/>
+    </bindings>
+    <bindings scd="~tns:contentType">
+      <class ref="fr.univrouen.rss25SB.model.ContentType"/>
+    </bindings>
+    <bindings scd="~tns:personType">
+      <class ref="fr.univrouen.rss25SB.model.PersonType"/>
+    </bindings>
+    <bindings scd="~tns:itemType">
+      <class ref="fr.univrouen.rss25SB.model.ItemType"/>
+    </bindings>
+    <bindings scd="~tns:relType">
+      <typesafeEnumClass ref="fr.univrouen.rss25SB.model.RelType"/>
+    </bindings>
+    <bindings scd="~tns:imageTypeType">
+      <typesafeEnumClass ref="fr.univrouen.rss25SB.model.ImageTypeType"/>
+    </bindings>
+    <bindings scd="~tns:contentTypeType">
+      <typesafeEnumClass ref="fr.univrouen.rss25SB.model.ContentTypeType"/>
+    </bindings>
+  </bindings>
+</bindings>
+

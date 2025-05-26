@@ -105,10 +105,6 @@ public class Item {
 
     public void setPublished(LocalDateTime published) {
         this.published = published;
-        // Si updated est null ou si published est après updated, on met à jour updated aussi
-        if (updated == null || (published != null && published.isAfter(updated))) {
-            this.updated = published;
-        }
     }
     
     public LocalDateTime getUpdated() {
@@ -119,10 +115,6 @@ public class Item {
 
     public void setUpdated(LocalDateTime updated) {
         this.updated = updated;
-        // Si published est null et qu'on a une valeur pour updated, on utilise updated comme published
-        if (published == null && updated != null) {
-            this.published = updated;
-        }
     }
     
     public void synchronizeDates() {

@@ -7,15 +7,15 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlValue;
 
-import jakarta.xml.bind.annotation.*;
+
 
 @Embeddable
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Content {
 
-    @Column(nullable = false)
-    @XmlValue
-    private String value;
+	@Column(nullable = false, columnDefinition = "TEXT")
+	@XmlValue
+	private String value;
 
     @Column(insertable = false, updatable = false)
     @XmlAttribute
