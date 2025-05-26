@@ -64,17 +64,46 @@ public class ItemController {
     @GetMapping(value = "/resume/xml", produces = MediaType.APPLICATION_XML_VALUE)
     @ResponseBody
     public ItemSummaryList getItemSummariesAsXml() {
-        return new ItemSummaryList(itemService.getAllItemSummaries());
+    	LOGGER.info("Début de la récupération de tous les résumés d'items en XML");
+    	try {
+    		ItemSummaryList summaries = new ItemSummaryList(itemService.getAllItemSummaries());
+    		LOGGER.log(Level.INFO, "Récupération réussie de résumés d'items");
+            return summaries;
+            
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Erreur lors de la récupération des résumés d'items: {0}", e.getMessage());
+            LOGGER.log(Level.SEVERE, "Stack trace: ", e);
+            throw e;
+        }
     }
 
     @GetMapping(value = "/resume/xml/{id}", produces = MediaType.APPLICATION_XML_VALUE)
     public ResponseEntity<?> getItemByIdAsXml(@PathVariable Long id) {
-        Optional<Item> item = itemService.getItemById(id);
+        LOGGER.log(Level.INFO, "Début de la récupération de l'item avec ID: {0}", id);
+        
+        try {
+            if (id == null) {
+                LOGGER.warning("ID fourni est null");
+                return ResponseEntity.badRequest()
+                        .body(new ErrorResponse(null, "ERROR"));
+            }
+            
+            Optional<Item> item = itemService.getItemById(id);
 
-        if (item.isPresent()) {
-            return ResponseEntity.ok(item.get());
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+            if (item.isPresent()) {
+                LOGGER.log(Level.INFO, "Item trouvé avec succès pour l'ID: {0}", id);
+                return ResponseEntity.ok(item.get());
+            } else {
+                LOGGER.log(Level.WARNING, "Aucun item trouvé pour l'ID: {0}", id);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(new ErrorResponse(id, "ERROR"));
+            }
+            
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Erreur lors de la récupération de l'item avec ID {0}: {1}", 
+                      new Object[]{id, e.getMessage()});
+            LOGGER.log(Level.SEVERE, "Stack trace: ", e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ErrorResponse(id, "ERROR"));
         }
     }
@@ -106,7 +135,7 @@ public class ItemController {
 
             Optional<Feed> existingFeed = feedRepository.findByTitleAndPubDate(feed.getTitle(), feed.getPubDate());
             if (existingFeed.isPresent()) {
-                // LOGGER.warning("Un flux avec le même titre et la même date existe déjà.");
+                 LOGGER.warning("Un flux avec le même titre et la même date existe déjà.");
                 return ResponseEntity.status(HttpStatus.CONFLICT)
                         .body(new ErrorResponse("ERROR"));
             }
@@ -152,25 +181,35 @@ public class ItemController {
         }
     }
 
-    // private String createErrorResponse(String message) {
-    // return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-    // "<response><status>ERROR</status><message>" + message +
-    // "</message></response>";
-    // }
-
-    // private String createSuccessResponse(Long id) {
-    // return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-    // "<response><id>" + id + "</id><status>INSERTED</status></response>";
-    // }
-
     @DeleteMapping(value = "/delete/{id}", produces = MediaType.APPLICATION_XML_VALUE)
-    public ResponseEntity<ApiResponse> deleteItem(@PathVariable Long id) {
-        ApiResponse response = itemService.deleteItemById(id);
-
-        if ("DELETED".equals(response.getStatus())) {
-            return ResponseEntity.ok(response);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+    public ResponseEntity<?> deleteItem(@PathVariable Long id) {
+        LOGGER.log(Level.INFO, "Début de la suppression de l'item avec ID: {0}", id);
+        
+        try {
+            if (id == null) {
+                LOGGER.warning("ID fourni pour la suppression est null");
+                ErrorResponse errorResponse = new ErrorResponse(null, "ERROR");
+                return ResponseEntity.badRequest().body(errorResponse);
+            }
+            
+            LOGGER.log(Level.INFO, "Appel du service de suppression pour l'item ID: {0}", id);
+            ApiResponse response = itemService.deleteItemById(id);
+            
+            if ("DELETED".equals(response.getStatus())) {
+                LOGGER.log(Level.INFO, "Suppression réussie de l'item avec ID: {0}", id);
+                return ResponseEntity.ok(response);
+            } else {
+                LOGGER.log(Level.WARNING, "Échec de la suppression - Item non trouvé avec ID: {0}", id);
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
+            }
+            
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Erreur lors de la suppression de l'item avec ID {0}: {1}", 
+                      new Object[]{id, e.getMessage()});
+            LOGGER.log(Level.SEVERE, "Stack trace: ", e);
+            
+            ErrorResponse errorResponse = new ErrorResponse(id, "ERROR");
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
         }
     }
 }
