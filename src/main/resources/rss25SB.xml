@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" lang="fr" version="25">
+    <title>Actualités Université de Rouen</title>
+    <pubDate>2025-05-19T10:00:00Z</pubDate>
+    <copyright>Copyright Université de Rouen 2025</copyright>
+    <link rel="self" type="application/atom+xml" href="https://univ-rouen.fr/feeds/actualites"/>
+    <link rel="alternate" type="text/html" href="https://univ-rouen.fr/actualites"/>
+    
+    <item>
+        <guid>https://univ-rouen.fr/actualites/1</guid>
+        <title>Ouverture des inscriptions pour l'année universitaire 2025-2026</title>
+        <category term="inscription"/>
+        <category term="université"/>
+        <published>2025-05-18T09:00:00Z</published>
+        <image type="JPEG" href="https://example.com/images/inscription.jpg" alt="Inscription" length="15000"/>
+        <content type="html"><![CDATA[<p>Les inscriptions pour l'année universitaire 2025-2026 sont désormais ouvertes. <strong>N'attendez pas la dernière minute !</strong></p>]]></content>
+        <author>
+            <name>Service Scolarité</name>
+            <email>scolarite@univ-rouen.fr</email>
+            <uri>https://univ-rouen.fr/services/scolarite</uri>
+        </author>
+        <contributor>
+            <name>Direction de la Communication</name>
+        </contributor>
+    </item>
+    
+    <item>
+        <guid>https://univ-rouen.fr/actualites/2</guid>
+        <title>Nouvelle formation en Intelligence Artificielle</title>
+        <category term="formation"/>
+        <category term="IA"/>
+        <updated>2025-05-17T14:30:00Z</updated>
+        <content type="text">L'Université de Rouen ouvre une nouvelle formation en Intelligence Artificielle à la rentrée 2025. Cette formation s'adresse aux étudiants de Master.</content>
+        <author>
+            <name>Département Informatique</name>
+        </author>
+    </item>
+</feed>

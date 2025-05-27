@@ -26,6 +26,8 @@ fr/univrouen/rss25SB/model/Content.class
 fr/univrouen/rss25SB/model/ContentTypeType.class
 fr/univrouen/rss25SB/model/TestRSS.class
 fr/univrouen/rss25SB/model/Image.class
+fr/univrouen/rss25SB/client/RssConverterSwingApp.class
+fr/univrouen/rss25SB/client/RssConverterSwingApp$1.class
 fr/univrouen/rss25SB/model/ObjectFactory.class
 fr/univrouen/rss25SB/controllers/ItemHtmlController.class
 fr/univrouen/rss25SB/ServletInitializer.class

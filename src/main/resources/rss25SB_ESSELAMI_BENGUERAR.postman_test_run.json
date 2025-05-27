@@ -1,0 +1,198 @@
+{
+	"id": "b4609ae6-e773-455f-bab1-f2e1260dbb10",
+	"name": "rss25SB",
+	"timestamp": "2025-05-27T01:36:03.359Z",
+	"collection_id": "26710251-054753d8-0ae4-42d5-977f-2b6902aef47f",
+	"folder_id": 0,
+	"environment_id": "26710251-6a89a99d-cb1d-413a-845a-a59293c140ae",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-05-27T01:36:02.514Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "5fce461a-cf66-493f-916e-8f83258abc2d",
+			"name": "Page d'acceuil",
+			"url": "https://rss25sb-esselami.cleverapps.io",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bf007bd5-8ccf-4fe9-bad9-d22a8c8f082d",
+			"name": "Page d'Aide",
+			"url": "https://rss25sb-esselami.cleverapps.io/help",
+			"time": 26,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				26
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "afa14dd2-b761-4747-9ecb-884ffe3660a6",
+			"name": "Liste synthétique des articles Format XML",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/resume/xml",
+			"time": 45,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				45
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "1707836a-9e09-41ef-9136-8846bdfd8984",
+			"name": "Détail d’un article Format XML",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/resume/xml/7",
+			"time": 22,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				22
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "b9ccf961-6390-47d8-95ec-dc5a9d4ba99c",
+			"name": "Liste synthétique des articles Format HTML",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/resume/html",
+			"time": 36,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				36
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "bf93fad9-e928-4d2d-ba2a-cbd8a0656eb5",
+			"name": "Détail d’un article Format HTML",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/resume/html/7",
+			"time": 28,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				28
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "aebc13b8-eaa8-4c16-96a7-dfcfcdc7bcc7",
+			"name": "Ajout d’un article dans la base",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/insert",
+			"time": 72,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				72
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "f49ddc04-3654-4513-86cf-2c5f811f0790",
+			"name": "Suppression d’un article",
+			"url": "https://rss25sb-esselami.cleverapps.io/rss25SB/delete/7",
+			"time": 43,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				43
+			],
+			"allTests": [
+				{}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 300,
+	"collection": {
+		"requests": [
+			{
+				"id": "5fce461a-cf66-493f-916e-8f83258abc2d",
+				"method": "GET"
+			},
+			{
+				"id": "bf007bd5-8ccf-4fe9-bad9-d22a8c8f082d",
+				"method": "GET"
+			},
+			{
+				"id": "afa14dd2-b761-4747-9ecb-884ffe3660a6",
+				"method": "GET"
+			},
+			{
+				"id": "1707836a-9e09-41ef-9136-8846bdfd8984",
+				"method": "GET"
+			},
+			{
+				"id": "b9ccf961-6390-47d8-95ec-dc5a9d4ba99c",
+				"method": "GET"
+			},
+			{
+				"id": "bf93fad9-e928-4d2d-ba2a-cbd8a0656eb5",
+				"method": "GET"
+			},
+			{
+				"id": "aebc13b8-eaa8-4c16-96a7-dfcfcdc7bcc7",
+				"method": "POST"
+			},
+			{
+				"id": "f49ddc04-3654-4513-86cf-2c5f811f0790",
+				"method": "DELETE"
+			}
+		]
+	}
+}
